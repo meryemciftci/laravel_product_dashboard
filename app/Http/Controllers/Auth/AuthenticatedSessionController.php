@@ -28,7 +28,16 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        //bildirim
+        $mesaj = array(
+            'bildirim' => 'Giriş Başarılı.',
+            'alert-type' => 'success'
+        );
+
+        //bildirim
+
+
+        return redirect()->intended(route('dashboard', absolute: false))->with($mesaj);
     }
 
     /**
@@ -41,7 +50,15 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+        
+        //bildirim
+        $mesaj = array(
+            'bildirim' => 'Çıkış Başarılı.',
+            'alert-type' => 'info'
+        );
 
-        return redirect('/');
+        //bildirim
+
+        return redirect('/login')->with($mesaj);
     }
 }
