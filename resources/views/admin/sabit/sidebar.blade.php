@@ -1,9 +1,5 @@
 <div class="vertical-menu">
-
                 <div data-simplebar class="h-100">
-
-                 
-
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
                         <!-- Left Menu Start -->
@@ -16,26 +12,69 @@
                                     <span>Dashboard</span>
                                 </a>
                             </li>
-
-                            <li>
-                                <a href="calendar.html" class=" waves-effect">
-                                    <i class="ri-calendar-2-line"></i>
-                                    <span>Calendar</span>
-                                </a>
-                            </li>
                 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-mail-send-line"></i>
-                                    <span>Email</span>
+                                    <span>Banner</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="email-inbox.html">Inbox</a></li>
-                                    <li><a href="email-read.html">Read Email</a></li>
+                                    <li><a href="{{route('banner')}}">Banner Düzenle</a></li>
                                 </ul>
                             </li>
 
+
+                            
                             <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Kategoriler</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+
+                                    <li>
+                                            <li><a href="{{route('kategori.hepsi')}}">Hepsi</a></li>
+                                            <li><a href="{{route('kategori.ekle')}}">Kategori Ekle</a></li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Alt Kategoriler</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+
+                                    <li>
+                                            <li><a href="{{route('altkategori.liste')}}">Liste</a></li>
+                                            <li><a href="{{route('altkategori.ekle')}}">Alt Kategori Ekle</a></li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Ürünler</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+
+                                    <li>
+                                            <li><a href="{{route('urun.liste')}}">Liste</a></li>
+                                            <li><a href="{{route('altkategori.ekle')}}">Alt Kategori Ekle</a></li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+
+
+
+
+
+
+
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-layout-3-line"></i>
                                     <span>Layouts</span>
@@ -65,6 +104,12 @@
                                     </li>
                                 </ul>
                             </li>
+
+
+
+
+
+
 
                             <li class="menu-title">Pages</li>
 
