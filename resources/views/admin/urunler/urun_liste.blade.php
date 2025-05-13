@@ -8,7 +8,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">Ürünlerr</h4>
+                                    <h4 class="mb-sm-0">Ürünler</h4>
 
                                 </div>
                             </div>
@@ -19,10 +19,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-        
                                         <h4 class="card-title">Ürün Liste</h4>
-                              
-        
                                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                             <tr>
@@ -34,23 +31,21 @@
                                                 <th>İşlem</th>
                                             </tr>
                                             </thead>
-        
-        
                                             <tbody>
                                                 @foreach($urunliste  as $urunler)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td> {{ $urunler->baslik }}</td>
-                                                <td>Alt Kategori</td>
+                                                <td>{{$urunler['Altkategori']['altkategori_adi']}}</td>
                                                 <td><img src="{{(!empty($urunler->resim))?url($urunler->resim):url('upload/resim-yok.jpg') }}" style="height:50px; width:50px;"></style></td>
                                                 <td>
-                                                    <input type="checkbox" class="urunler" data-id="" id="" switch="success">
-                                                    <label for="switch4" data-on-label="Yes" data-off-label="No"></label>
+                                                    <input type="checkbox" class="urunler" data-id="{{ $urunler->id }}" id="{{ $urunler->id }}" switch="success" {{ $urunler->durum ? 'checked' : '' }}>
+                                                    <label for="{{ $urunler->id }}" data-on-label="Yes" data-off-label="No"></label>
                                                 </td>
                                                 <td>
-                                                    <a href="{{route('altkategori.duzenle',$urunler->id)}}" class="btn btn-info sm m-2" title="Düzenle" >
+                                                    <a href="{{route('urun.duzenle',$urunler->id)}}" class="btn btn-info sm m-2" title="Düzenle" >
                                                         <i class="fas fa-edit"></i>
-                                                        <a href="{{route('altkategori.sil',$urunler->id)}}" class="btn btn-danger sm" title="Sil" id="sil">
+                                                        <a href="{{route('urun.sil',$urunler->id)}}" class="btn btn-danger sm" title="Sil" id="sil">
                                                             <i class="fa fa-trash-alt"></i>
 </a>
 </a>

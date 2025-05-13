@@ -33,7 +33,7 @@ class AltKategoriController extends Controller
             'altkategori_adi' => 'required',
             'anahtar' =>'required'
         ],[
-            'ltkategori_adi.required' => 'Alt kategori adı boş olamaz.',
+            'altkategori_adi.required' => 'Alt kategori adı boş olamaz.',
             'anahtar.required' => 'Anahtar boş olamaz.'
         ]);
         
@@ -173,6 +173,11 @@ class AltKategoriController extends Controller
          return Redirect()->back()->with($mesaj);
  
 
+     }//fonksiyon bitti
+
+     public function AltAjax($kategori_id){
+        $altgetir = AltKategoriler :: where('kategori_id', $kategori_id)->orderBy('altkategori_adi', 'ASC')->get();
+        return json_encode($altgetir);
      }//fonksiyon bitti
 
 

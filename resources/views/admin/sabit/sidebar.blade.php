@@ -63,7 +63,7 @@
 
                                     <li>
                                             <li><a href="{{route('urun.liste')}}">Liste</a></li>
-                                            <li><a href="{{route('altkategori.ekle')}}">Alt Kategori Ekle</a></li>
+                                            <li><a href="{{route('urun.ekle')}}">Ürün Ekle</a></li>
                                     </li>
                                 </ul>
                             </li>

@@ -7,7 +7,7 @@ use App\Http\Controllers\Home\BannerController;
 use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\AltKategoriController;
 use App\Http\Controllers\Admin\UrunController;
-
+use App\Http\Controllers\Home\FrontController;
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -42,19 +42,20 @@ Route::controller(AlTKategoriController:: class)->group(function(){
     Route::get('/altkategori/duzenle/{id}','AltKategoriDuzenle')->name('altkategori.duzenle');
     Route::post('/alt/guncelle/form','AltKategoriForm')->name('alt.guncelle');
     Route::get('/altkategori/sil/{id}','AltKategoriSil')->name('altkategori.sil');
+    Route::get('/altkategoriler/ajax/{kategori_id}','AltAjax');
 });
 
 //Urun route
 Route::controller(UrunController:: class)->group(function(){
     Route::get('/urun/liste','UrunListe')->name('urun.liste');
-    Route::get('/alkategori/ekle','AltKategoriEkle')->name('altkategori.ekle');
-    Route::post('/altkategori/ekle/form','AltKategoriEkleForm')->name('altkategori.ekle.form');
-    Route::get('/altkategori/duzenle/{id}','AltKategoriDuzenle')->name('altkategori.duzenle');
-    Route::post('/alt/guncelle/form','AltKategoriForm')->name('alt.guncelle');
-    Route::get('/altkategori/sil/{id}','AltKategoriSil')->name('altkategori.sil');
+    Route::get('/urun/durum','UrunDurum');
+    Route::get('/urun/ekle','UrunEkle')->name('urun.ekle');
+    Route::post('/urun/ekle/form','UrunEkleForm')->name('urun.ekle.form');
+    Route::get('/urun/duzenle/{id}','UrunDuzenle')->name('urun.duzenle');
+    Route::post('/urun/guncelle/','UrunGuncelle')->name('urun.guncelle.form');
+    Route::get('/urun/sil/{id}','UrunSil')->name('urun.sil');
+
 });
-
-
 
 
 Route::middleware('auth')->group(function () {
@@ -62,8 +63,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 require __DIR__.'/auth.php';
+
+
+//front route 
+
+Route::get('/urun/{id}/{url}', [FrontController::class, 'UrunDetay']);
