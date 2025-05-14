@@ -11,15 +11,11 @@ class BannerController extends Controller
 {
     public function HomeBanner(){
         $homebanner = Banner::find(1);
-    //     //eklendi id hatası
-    // if (!$homebanner) {
-    //     // Banner kaydı yoksa sayfayı patlatma, geri döndür ve kullanıcıya mesaj ver
-    //     return redirect()->back()->with('error', 'Banner kaydı bulunamadı.');
-    // }
         return view('admin.anasayfa.banner_duzenle',compact('homebanner'));
-
-
     }//fonksiyon bitti
+
+
+    
     public function BannerGuncelle(Request $request){
        $banner_id = $request->id;
        if($request->file('resim')){

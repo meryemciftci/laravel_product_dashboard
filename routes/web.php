@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\AltKategoriController;
 use App\Http\Controllers\Admin\UrunController;
 use App\Http\Controllers\Home\FrontController;
+use App\Http\Controllers\Home\HakkimizdaController;
+use App\Http\Controllers\MesajController;
+
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -22,6 +25,20 @@ Route::controller(BannerController:: class)->group(function(){
     Route::get('/banner/duzenle','HomeBanner')->name('banner');
     Route::post('/banner/guncelle','BannerGuncelle')->name('banner.guncelle');
 });
+//hakkimizda route
+Route::controller(HakkimizdaController:: class)->group(function(){
+    Route::get('/hakkimizda/duzenle','Hakkimizda')->name('hakkimizda');
+    Route::post('/hakkimizda/guncelle','HakkimizdaGuncelle')->name('hakkimizda.guncelle');
+    Route::get('/hakkimizda','HakkimizdaFront')->name('anasayfa.hak');
+    Route::get('/coklu/resim','CokluResim')->name('coklu.resim');
+    Route::post('/coklu/form','CokluForm')->name('coklu.resim.form');
+    Route::get('/coklu/liste','CokluListe')->name('coklu.liste');
+    Route::get('/coklu/duzenle/{id}','CokluDuzenle')->name('coklu.duzenle');
+    Route::post('/coklu/guncelle','CokluGuncelle')->name('coklu.guncelle');
+    Route::get('/coklu/sil/{id}','CokluSil')->name('coklu.sil');
+});
+
+
 
 
 //Kategori route
@@ -54,7 +71,6 @@ Route::controller(UrunController:: class)->group(function(){
     Route::get('/urun/duzenle/{id}','UrunDuzenle')->name('urun.duzenle');
     Route::post('/urun/guncelle/','UrunGuncelle')->name('urun.guncelle.form');
     Route::get('/urun/sil/{id}','UrunSil')->name('urun.sil');
-
 });
 
 
@@ -74,3 +90,11 @@ require __DIR__.'/auth.php';
 //front route 
 
 Route::get('/urun/{id}/{url}', [FrontController::class, 'UrunDetay']);
+Route::get('/kategori/{id}/{url}', [FrontController::class, 'KategoriDetay']);
+Route::get('/altkategori/{id}/{url}', [FrontController::class, 'AltKategoriDetay']);
+
+//Teklif Fromu route
+Route::controller(MesajController:: class)->group(function(){
+    Route::get('/iletisim','Iletisim')->name('iletisim');
+    Route::post('/teklif/form','TeklifFormu')->name('teklif.form');
+});
