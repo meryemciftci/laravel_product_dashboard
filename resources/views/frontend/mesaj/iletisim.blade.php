@@ -43,35 +43,35 @@ $coklu =App\Models\Cokluresim::all();
             <!-- contact-area -->
             <div class="contact-area">
                 <div class="container">
-                    <form method="post" action="{{route('teklif.form')}}" class="contact__form">
+                    <form method="post" action="{{ route('teklif.form')}} " class="contact__form" id="myForm">
                         @csrf
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6" form-group>
                                 <input type="text" name="adi" placeholder="Ad Soyad*">
                                 @error('adi')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6" form-group>
                                 <input type="email" name="email" placeholder="Email adresiniz*">
                                 @error('email')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6" form-group>
                                 <input type="text" name="telefon" placeholder="Telefon*">
                                 @error('telefon')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6" form-group>
                                 <input type="text" name="konu" placeholder="Konu*">
                                 @error('konu')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
                         </div>
-                        <textarea type="text" name="message" id="message" placeholder="Mesajınız*"></textarea>
+                        <textarea type="text" name="mesaj" id="message" placeholder="Mesajınız*"></textarea>
                                 @error('mesaj')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror

@@ -21,18 +21,20 @@ class MesajController extends Controller
             'email' => 'required|email',
             'telefon' => 'required|digits:11|numeric',
             'konu' => 'required',
-            'mesaj' => 'required',
+            'mesaj' => 'required'
         ],[
             'adi.required' => 'Ad soyad boş olamaz',
             'email.required' => 'Email zorunludur',
-            'telefon.required' => 'Boşluksuz 11 sayısal akrakter olmalıdır',
+            'email.email' => 'Email, mail formatında olmalıdır',
+            'telefon.required' => 'Telefon numarası yazınız',
+            'telefon.digits' => 'Boşluksuz 11 sayısal akrakter olmalıdır',
             'konu.required' => 'Konu boş olamaz',
-            'mesaj.required' => 'Mesajınızı yazınız',
+            'mesaj.required' => 'Mesajınızı yazınız'
         ]);
 
         Mesaj::create($request->all());
 
-                 //bildirim
+        //bildirim
          $mesaj = array(
              'bildirim' => 'En kısa sürede tarafınıza dönüş sağlanacaktır',
              'alert-type' => 'success'

@@ -111,10 +111,6 @@
         <!-- Datatable init js -->
         <script src="{{asset('backend/assets/js/pages/datatables.init.js')}}"></script>
 
-        <!-- Required datatable js -->
-        <script src="{{asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-
         <!-- bildiri -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script>
@@ -152,7 +148,7 @@
 
 
 
-     <!-- aktif pasif durum alanı -->
+     <!-- ürün aktif pasif durum alanı -->
     <script>
         $(function(){
             $('.urunler').change(function(){
@@ -173,6 +169,47 @@
     </script>
      <!-- aktif pasif durum alanı -->
 
+   <!--süreç aktif pasif durum alanı -->
+    <script>
+        $(function(){
+            $('.surec').change(function(){
+                var durum = $(this).prop('checked') == true ? 1 : 0;  // işaretli ise durum değişkeni 1 olur
+                var urun_id = $(this).data('id');  // ürün id si alınır data_id den
+                $.ajax({
+                    type:"GET",  //urun/durum adresşne çağrı
+                    dataType : "json",
+                    url : "/surec/durum",
+                    data: {'durum':durum,'urun_id':urun_id},
+                    success: function(data){   //başarılı olduğunda konsolo yazılır
+                        console.log(data.success)
+                    }
+                });
+
+            });
+        });
+    </script>
+     <!-- aktif pasif durum alanı -->
+
+        <!--yorum aktif pasif durum alanı -->
+    <script>
+        $(function(){
+            $('.yorumlar').change(function(){
+                var durum = $(this).prop('checked') == true ? 1 : 0;  // işaretli ise durum değişkeni 1 olur
+                var urun_id = $(this).data('id');  // ürün id si alınır data_id den
+                $.ajax({
+                    type:"GET",  //urun/durum adresşne çağrı
+                    dataType : "json",
+                    url : "/yorum/durum",
+                    data: {'durum':durum,'urun_id':urun_id},
+                    success: function(data){   //başarılı olduğunda konsolo yazılır
+                        console.log(data.success)
+                    }
+                });
+
+            });
+        });
+    </script>
+     <!-- aktif pasif durum alanı -->
      <!-- tag -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
     <!-- tag -->

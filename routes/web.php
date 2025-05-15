@@ -10,6 +10,9 @@ use App\Http\Controllers\Admin\UrunController;
 use App\Http\Controllers\Home\FrontController;
 use App\Http\Controllers\Home\HakkimizdaController;
 use App\Http\Controllers\MesajController;
+use App\Http\Controllers\Admin\SurecController;
+use App\Http\Controllers\Home\YorumController;
+use App\Http\Controllers\Home\SeoController;
 
 
 Route::get('/', function () {
@@ -19,6 +22,12 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+//Seo route
+Route::controller(SeoController:: class)->group(function(){
+    Route::get('/seo/duzenle','SeoDuzenle')->name('seo.duzenle');
+    Route::post('/seo/guncelle','SeoGuncelle')->name('seo.guncelle');
+});
 
 //banner route
 Route::controller(BannerController:: class)->group(function(){
@@ -73,6 +82,29 @@ Route::controller(UrunController:: class)->group(function(){
     Route::get('/urun/sil/{id}','UrunSil')->name('urun.sil');
 });
 
+//Surec route
+Route::controller(SurecController:: class)->group(function(){
+    Route::get('/surec/liste','SurecListe')->name('surec.liste');
+    Route::get('/surec/ekle','SurecEkle')->name('surec.ekle');
+    Route::post('/surec/form','SurecForm')->name('surec.form');
+    Route::get('/surec/durum','SurecDurum');
+    Route::get('/surec/duzenle/{id}','SurecDuzenle')->name('surec.duzenle');
+    Route::post('/surec/guncelle','SurecGuncelle')->name('surec.guncelle');
+    Route::get('/surec/sil/{id}','SurecSil')->name('surec.sil');
+});
+//Yorum route
+Route::controller(YorumController:: class)->group(function(){
+    Route::get('/yorumlar','Yorumlar')->name('yorum.liste');
+    Route::get('/yorum/ekle','YorumEkle')->name('yorum.ekle');
+    Route::post('/yorum/form','YorumForm')->name('yorum.form');
+    Route::get('/yorum/durum','YorumDurum');
+    Route::get('/yorum/duzenle/{id}','YorumDuzenle')->name('yorum.duzenle');
+    Route::post('/yorum/guncelle','YorumGuncelle')->name('yorum.guncelle');
+    Route::get('/yorum/sil/{id}','YorumSil')->name('yorum.sil');
+});
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -98,3 +130,5 @@ Route::controller(MesajController:: class)->group(function(){
     Route::get('/iletisim','Iletisim')->name('iletisim');
     Route::post('/teklif/form','TeklifFormu')->name('teklif.form');
 });
+
+

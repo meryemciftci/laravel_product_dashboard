@@ -3,45 +3,66 @@
 
 @section('admin')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+<style type="text/css">
+    .bootstrap-tagsinput .tag{
+        margin-right:3px;
+        font-weight:700;
+        color:#228b22;
+        padding:3px;
+    }
+    </style>
+
+
 <div class="page-content">
     <div class="container-fluid">
 <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Banner Düzenle</h4>
-                                        <form method="post" action="{{ route('banner.guncelle') }}" enctype="multipart/form-data">
+                                        <h4 class="card-title">SEO Ayarları</h4>
+                                        <form method="post" action="{{ route('seo.guncelle') }}" enctype="multipart/form-data">
                                             @csrf
-                                            <input type="hidden" name="id" value="{{$homebanner->id }}" >
+
+                                            <input type="hidden" name="id" value="{{$seo->id}}" >
+                                            <input type="hidden" name="onceki_resim" value="{{$seo->id}}" >
+
                                         <div class="row mb-3">
-                                            <label for="example-text-input" class="col-sm-2 col-form-label">Başlık</label>
+                                            <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" placeholder="Başlık" name="baslik" id="example-text-input" value="{{$homebanner->baslik}}">
+                                                <input class="form-control" type="text" placeholder="Title" name="title" id="example-text-input" value="{{$seo->title}}">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="example-text-input" class="col-sm-2 col-form-label">Alt Başlık</label>
+                                            <label for="example-text-input" class="col-sm-2 col-form-label">Site Adı</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" name="alt_baslik" type="text" placeholder="Alt Başlık" id="example-text-input" value="{{$homebanner->alt_baslik}}">
+                                                <input class="form-control" name="site_adi" type="text" placeholder="Site Adı" id="example-text-input" value="{{$seo->site_adi}}">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="example-text-input" class="col-sm-2 col-form-label">Url</label>
+                                            <label for="example-text-input" class="col-sm-2 col-form-label">Açıklama</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="url" placeholder="Url" name="url" id="example-text-input" value="{{$homebanner->url}}">
+                                                <input class="form-control" type="text" placeholder="Açıklama /Description" name="aciklama" id="example-text-input" value="{{$seo->aciklama}}">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="example-text-input" class="col-sm-2 col-form-label">Video Url</label>
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Anahtar</label>
+                                                <div class="col-sm-10" form-group>
+                                                    <input class="form-control" type="text" name="keywords" data-role="tagsinput" value ="{{ $seo -> keywords }}">
+                                                </div>
+                                        </div>
+                                            <!--- end row --->
+                                        <div class="row mb-3">
+                                            <label for="example-text-input" class="col-sm-2 col-form-label">Yapımcı / Author</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="url" placeholder="Video Url" name="video_url" id="example-text-input" value="{{$homebanner->video_url}}">
+                                                <input class="form-control" type="text" placeholder="Yapımcı/Author" name="author" id="example-text-input" value="{{$seo->author}}">
                                             </div>
                                         </div>
                                         <!-- end row -->
-                                        <div class="row mb-3">
+                    <div class="row mb-3">
                         <label for="example-text-input" class="col-sm-2">Resim</label>
                         <div class="col-sm-10">
                             <input type="file" name="resim" id="resim" class="form-control" >
@@ -51,10 +72,13 @@
                     <div class="row mb-3">
                         <label for="example-text-input" class="col-sm-2"></label>
                         <div class="col-sm-10">
-                            <img class="rounded avatar-lg" src="{{ (!empty($homebanner->resim)) ? url($homebanner->resim): url('upload/resim-yok.jpg') }}" alt="" id="resimGoster">
+                            <img class="rounded avatar-lg" src="{{ (!empty($seo->logo)) ? url($seo->logo): url('upload/resim-yok.jpg') }}" alt="" id="resimGoster">
                         </div>
                     </div>
+
                     <input type="submit" class="btn btn-info waves-effect waves-light" value="Güncelle">
+
+
 </form>
                                     </div>
                                 </div>

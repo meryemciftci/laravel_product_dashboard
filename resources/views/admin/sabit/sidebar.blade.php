@@ -81,6 +81,51 @@
                             <li>
 
 
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Süreçler</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+
+                                    <li>
+                                            <li><a href="{{route('surec.liste')}}">Liste</a></li>
+                                            <li><a href="{{route('surec.ekle')}}">Süreç Ekle</a></li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Yorumlar</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+
+                                    <li>
+                                            <li><a href="{{route('yorum.liste')}}">Liste</a></li>
+                                            <li><a href="{{route('yorum.ekle')}}">Yorum Ekle</a></li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+
+
+                                
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Seo Ayarları</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+
+                                    <li>
+                                            <li><a href="{{route('seo.duzenle')}}">Güncelle</a></li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
 
 
 

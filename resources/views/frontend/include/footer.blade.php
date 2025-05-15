@@ -1,6 +1,7 @@
 
             <!-- contact-area -->
-            <section class="homeContact" style="margin-top:190px;">
+            @if (!Request::is('iletisim'))
+            <section class="homeContact" style="margin-top:230px;">
                 <div class="container">
                     <div class="homeContact__wrap">
                         <div class="row">
@@ -16,12 +17,34 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="homeContact__form">
-                                    <form action="#">
-                                        <input type="text" placeholder="Enter name*">
-                                        <input type="email" placeholder="Enter mail*">
-                                        <input type="number" placeholder="Enter number*">
-                                        <textarea name="message" placeholder="Enter Massage*"></textarea>
-                                        <button type="submit">Send Message</button>
+                                   <form method="post" action="{{ route('teklif.form')}} " class="contact__form form-group" id="myForm">
+                                      @csrf
+                                        <input type="text" name="adi" placeholder="Ad Soyad*">
+                                        @error('adi')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+
+                                        <input type="email" name="email" placeholder="Email adresiniz*">
+                                        @error('email')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+
+                                        <input type="text" name="telefon" placeholder="Telefon*">
+                                        @error('telefon')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+
+                                        <input type="text" name="konu" placeholder="Konu*">
+                                        @error('konu')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+
+                                        <textarea type="text" name="mesaj" id="message" placeholder="Mesajınız*"></textarea>
+                                         @error('mesaj')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+
+                                        <button type="submit">Teklif Gönder</button>
                                     </form>
                                 </div>
                             </div>
@@ -29,6 +52,7 @@
                     </div>
                 </div>
             </section>
+            @endif
             <!-- contact-area-end -->
 
 
