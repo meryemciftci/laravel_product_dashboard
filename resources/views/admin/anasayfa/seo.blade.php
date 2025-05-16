@@ -25,7 +25,7 @@
                                             @csrf
 
                                             <input type="hidden" name="id" value="{{$seo->id}}" >
-                                            <input type="hidden" name="onceki_resim" value="{{$seo->id}}" >
+                                            <input type="hidden" name="onceki_resim" value="{{$seo->logo}}" >
 
                                         <div class="row mb-3">
                                             <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
@@ -62,8 +62,16 @@
                                             </div>
                                         </div>
                                         <!-- end row -->
+
+                                        <div class="row mb-3">
+                                            <label for="example-text-input" class="col-sm-2 col-form-label">Harita</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" placeholder="Google Haritalar" name="harita" id="example-text-input" value="{{$seo->harita}}">
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
                     <div class="row mb-3">
-                        <label for="example-text-input" class="col-sm-2">Resim</label>
+                        <label for="example-text-input" class="col-sm-2">Logo</label>
                         <div class="col-sm-10">
                             <input type="file" name="resim" id="resim" class="form-control" >
                         </div>

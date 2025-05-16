@@ -127,10 +127,21 @@
                             </li>
                             <li>
 
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Roller ve İzinler</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
 
-
-
-
+                                    <li>
+                                            <li><a href="{{route('izin.liste')}}">İzinler</a></li>
+                                            <li><a href="{{route('rol.liste')}}">Roller</a></li>
+                                            <li><a href="{{route('rol.izin.verme')}}">Role Yetki Ver</a></li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-layout-3-line"></i>
                                     <span>Layouts</span>

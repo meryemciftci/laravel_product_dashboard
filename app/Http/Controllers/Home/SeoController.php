@@ -45,7 +45,9 @@ class SeoController extends Controller
             'aciklama'=> $request->aciklama,
             'author'=> $request->author,
             'keywords'=> $request->keywords,
+            'harita'=> $request->harita,
             'logo' => $resim_kaydet,
+            'created_at'=>Carbon::now('Europe/Istanbul'),
 
         ]);
         //bildirim
@@ -65,6 +67,8 @@ class SeoController extends Controller
             'aciklama'=> $request->aciklama,
             'author'=> $request->author,
             'keywords'=> $request->keywords,
+            'harita'=> $request->harita,
+            'created_at'=>Carbon::now('Europe/Istanbul'),
 
         ]);
         //bildirim

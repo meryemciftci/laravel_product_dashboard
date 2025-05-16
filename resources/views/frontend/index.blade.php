@@ -1,6 +1,9 @@
 
 @extends('frontend.main_master')
 
+
+{{-- Seo ayarları  --}}
+
 @php
     $seo= App\Models\Seo::find(1);
 @endphp
@@ -10,11 +13,14 @@
 @section('aciklama') {{ $seo->aciklama }}@endsection
 @section('anahtar') {{ $seo->keywords }}@endsection
 
+{{-- Seo ayarları  --}}
+
+
 @section('main')
 <main style="margin-bottom: -460px">
             <!-- banner-area -->
             @include('frontend.anasayfa.banner')
-            <!-- banner-area-end -->
+            <!-- banner-area-end -->                 
 
             <!-- about-area -->
             @include('frontend.anasayfa.anasayfa_hak')

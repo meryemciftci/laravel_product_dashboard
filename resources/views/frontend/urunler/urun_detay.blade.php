@@ -1,4 +1,16 @@
 @extends('frontend.main_master')
+{{-- Seo ayarları  --}}
+
+@php
+    $seo= App\Models\Seo::find(1);
+@endphp
+
+@section('title') {{$urunler->baslik}} | {{ $seo->site_adi }}@endsection
+@section('author') {{ $seo->author }}@endsection
+@section('aciklama') {{ $urunler->aciklama }}@endsection
+@section('anahtar') {{ $urunler->anahtar }}@endsection
+
+{{-- Seo ayarları  --}}
 
 @section('main')
 

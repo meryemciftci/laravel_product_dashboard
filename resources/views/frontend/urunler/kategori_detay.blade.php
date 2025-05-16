@@ -1,5 +1,19 @@
 @extends('frontend.main_master')
 
+{{-- Seo ayarları  --}}
+
+@php
+    $seo= App\Models\Seo::find(1);
+@endphp
+
+@section('title') {{ $kategori->kategori_adi }} | {{ $seo->site_adi }}@endsection
+@section('author') {{ $seo->author }}@endsection
+@section('aciklama') {{ $kategori->aciklama }}@endsection
+@section('anahtar') {{ $kategori->anahtar }}@endsection
+
+{{-- Seo ayarları  --}}
+
+
 @section('main')
 
             <!-- breadcrumb-area -->

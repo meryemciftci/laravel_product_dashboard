@@ -13,6 +13,7 @@ use App\Http\Controllers\MesajController;
 use App\Http\Controllers\Admin\SurecController;
 use App\Http\Controllers\Home\YorumController;
 use App\Http\Controllers\Home\SeoController;
+use App\Http\Controllers\Admin\RolController;
 
 
 Route::get('/', function () {
@@ -103,6 +104,34 @@ Route::controller(YorumController:: class)->group(function(){
     Route::get('/yorum/sil/{id}','YorumSil')->name('yorum.sil');
 });
 
+//İzinler  route
+Route::controller(RolController:: class)->group(function(){
+    Route::get('/izin/liste','IzinListe')->name('izin.liste');
+    Route::get('/izin/ekle','IzinEkle')->name('izin.ekle');
+    Route::post('/izin/form','IzinForm')->name('izin.ekle.form');
+    Route::get('/izin/duzenle/{id}','IzinDuzenle')->name('izin.duzenle');
+    Route::post('/izin/guncelle','IzinGuncelle')->name('izin.guncelle.form');
+    Route::get('/izin/sil/{id}','IzinSil')->name('izin.sil');
+});
+
+//Rol route
+Route::controller(RolController:: class)->group(function(){
+    Route::get('/rol/liste','RolListe')->name('rol.liste');
+    Route::get('/rol/ekle','RolEkle')->name('rol.ekle');
+    Route::post('/rol/form','RolForm')->name('rol.ekle.form');
+    Route::get('/rol/duzenle/{id}','RolDuzenle')->name('rol.duzenle');
+    Route::post('/rol/guncelle','RolGuncelle')->name('rol.guncelle');
+    Route::get('/rol/sil/{id}','RolSil')->name('rol.sil');
+
+
+
+//Rollere izin verme route
+   Route::get('/rol/izin/verme','RolIzinVerme')->name('rol.izin.verme');
+
+
+
+});
+
 
 
 
@@ -130,5 +159,7 @@ Route::controller(MesajController:: class)->group(function(){
     Route::get('/iletisim','Iletisim')->name('iletisim');
     Route::post('/teklif/form','TeklifFormu')->name('teklif.form');
 });
+
+
 
 

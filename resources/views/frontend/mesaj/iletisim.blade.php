@@ -1,5 +1,19 @@
 @extends('frontend.main_master')
 
+
+{{-- Seo ayarları  --}}
+
+@php
+    $seo= App\Models\Seo::find(1);
+@endphp
+
+@section('title') İletişim | {{ $seo->site_adi }}@endsection
+@section('author') {{ $seo->author }}@endsection
+@section('aciklama') {{ $seo->aciklama }}@endsection
+@section('anahtar') {{ $seo->keywords }}@endsection
+
+{{-- Seo ayarları  --}}
+
 @section('main')
 
 @php
@@ -35,8 +49,7 @@ $coklu =App\Models\Cokluresim::all();
 
             <!-- contact-map -->
             <div id="contact-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96811.54759587669!2d-74.01263924803828!3d40.6880494567041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25bae694479a3%3A0xb9949385da52e69e!2sBarclays%20Center!5e0!3m2!1sen!2sbd!4v1636195194646!5m2!1sen!2sbd"
-                    allowfullscreen loading="lazy"></iframe>
+                <iframe src="{{ $seo->harita}}"></iframe>
             </div>
             <!-- contact-map-end -->
 
@@ -80,7 +93,9 @@ $coklu =App\Models\Cokluresim::all();
                 </div>
             </div>
             <!-- contact-area-end -->
-
+{{-- @php
+$footer = App\Models\Footer::find(1);
+@endphp --}}
             <!-- contact-info-area -->
             <section class="contact-info-area">
                 <div class="container">
@@ -91,8 +106,8 @@ $coklu =App\Models\Cokluresim::all();
                                     <img src="assets/img/icons/contact_icon01.png" alt="">
                                 </div>
                                 <div class="contact__info__content">
-                                    <h4 class="title">address line</h4>
-                                    <span>Bowery St, New York, <br> NY 10013,USA</span>
+                                    <h4 class="title">Adres</h4>
+                                    <span>İstanbul</span>
                                 </div>
                             </div>
                         </div>
@@ -102,9 +117,9 @@ $coklu =App\Models\Cokluresim::all();
                                     <img src="assets/img/icons/contact_icon02.png" alt="">
                                 </div>
                                 <div class="contact__info__content">
-                                    <h4 class="title">Phone Number</h4>
-                                    <span>+1255 - 568 - 6523</span>
-                                    <span>+1255 - 568 - 6523</span>
+                                    <h4 class="title">05356568264</h4>
+                                    <span>05356568264</span>
+                                    <span>05356568264</span>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +129,7 @@ $coklu =App\Models\Cokluresim::all();
                                     <img src="assets/img/icons/contact_icon03.png" alt="">
                                 </div>
                                 <div class="contact__info__content">
-                                    <h4 class="title">Mail Address</h4>
+                                    <h4 class="title">Mail Adresimiz</h4>
                                     <span>email@example.com</span>
                                     <span>info@yourdomain.com</span>
                                 </div>
