@@ -125,8 +125,12 @@ Route::controller(RolController:: class)->group(function(){
 
 
 
-//Rollere izin verme route
+//Rollere yetki verme route
    Route::get('/rol/izin/verme','RolIzinVerme')->name('rol.izin.verme');
+   Route::post('/rol/yetki/ver','RolYetkiVer')->name('yetki.ver.form');
+   Route::get('/rol/yetki/liste','RolYetkiListe')->name('rol.yetki.liste');
+   Route::get('/rol/yetki/duzenle/{id}','RolYetkiDuzenle')->name('rol.yetki.duzenle');
+
 
 
 

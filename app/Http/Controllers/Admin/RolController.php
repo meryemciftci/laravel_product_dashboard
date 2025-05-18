@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
+use DB;
 
 
 class RolController extends Controller
@@ -154,5 +155,49 @@ class RolController extends Controller
 
   }//function sonu
 
+  public function RolYetkiVer(Request $request){
+    $data = array();
+    $yetkiler = $request->yetki;
+
+    foreach($yetkiler as $key => $item){
+        $data['role_id'] = $request->rol_id;
+        $data['permission_id']=$item;
+
+        DB::table('role_has_permissions')->insert($data);
+
+    }//foreach bitti
+
+    //bildirim
+            $mesaj = array(
+                'bildirim' => 'Role yetki verildi',
+                'alert-type' => 'success'
+            );
+    //bildirim
+            return Redirect()->route('rol.liste')->with($mesaj);
+   
+    
+  }//function sonu
+
+
+  
+
+  public function RolYetkiListe(){
+    $rol = Role::all();
+    return view('admin.rol.rol_yetki_liste',compact('rol'));
+
+  }//function sonu
+
+
+   public function RolYetkiDuzenle($id){
+    $rol = Role::findOrFail($id);
+    $yetkiler = Permission::all();
+    $izin_gruplari = User::IzinGruplari();
+
+    return view('admin.rol.rol_yetki_duzenle',compact('rol','yetkiler','izin_gruplari'));
+
+
+   }//function sonu
+
+  
     
 }//class sonu

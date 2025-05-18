@@ -64,6 +64,22 @@ class User extends Authenticatable implements MustVerifyEmail
 
     }//function sonu
 
+    public static function RolYetkileri($rol,$yetkigrup){
+        $yetkiIzinleri =true;
+        foreach($yetkigrup as $yetkiler){
+            if(!$rol->hasPermissionTo($yetkiler->name)){
+                $yetkiIzinleri = false;
+                return $yetkiIzinleri;
+            }
+            return $yetkiIzinleri;
+        }
+
+    }//function sonu
+
+
+        
+    
+
 
 
 
