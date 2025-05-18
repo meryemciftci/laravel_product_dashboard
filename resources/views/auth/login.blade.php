@@ -38,7 +38,7 @@
                             </div>
                         </div>
     
-                        <h4 class="text-muted text-center font-size-18"><b>Sign In</b></h4>
+                        <h4 class="text-muted text-center font-size-18"><b>Giriş Yap</b></h4>
     
                         <div class="p-3">
                             
@@ -46,8 +46,8 @@
                             @csrf
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input id="email"  type="email" name="email" class="form-control" required="" placeholder="Email">
-                                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                        <input id="girisadi"  type="text" name="girisadi" class="form-control" required="" placeholder="Email | Kullanıcı Adı | Telefon">
+                                        <x-input-error :messages="$errors->get('girisadi')" class="mt-2" />
                                     </div>
                                 </div>
                                 <div class="form-group mb-3 row">

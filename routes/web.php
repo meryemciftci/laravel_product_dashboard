@@ -62,7 +62,7 @@ Route::controller(KategoriController:: class)->group(function(){
 });
 
 //AltKategori route
-Route::controller(AlTKategoriController:: class)->group(function(){
+Route::controller(AltKategoriController:: class)->group(function(){
     Route::get('/altkategori/liste','AltKategoriListe')->name('altkategori.liste');
     Route::get('/alkategori/ekle','AltKategoriEkle')->name('altkategori.ekle');
     Route::post('/altkategori/ekle/form','AltKategoriEkleForm')->name('altkategori.ekle.form');
@@ -85,7 +85,7 @@ Route::controller(UrunController:: class)->group(function(){
 
 //Surec route
 Route::controller(SurecController:: class)->group(function(){
-    Route::get('/surec/liste','SurecListe')->name('surec.liste');
+    Route::get('/surec/liste','SurecListe')->name('surec.liste')->middleware('permission:surec.liste');  //url engelleme
     Route::get('/surec/ekle','SurecEkle')->name('surec.ekle');
     Route::post('/surec/form','SurecForm')->name('surec.form');
     Route::get('/surec/durum','SurecDurum');
@@ -130,9 +130,19 @@ Route::controller(RolController:: class)->group(function(){
    Route::post('/rol/yetki/ver','RolYetkiVer')->name('yetki.ver.form');
    Route::get('/rol/yetki/liste','RolYetkiListe')->name('rol.yetki.liste');
    Route::get('/rol/yetki/duzenle/{id}','RolYetkiDuzenle')->name('rol.yetki.duzenle');
+   Route::post('/rol/yetki/guncelle/{id}','RolYetkiGuncelle')->name('rol.yetki.guncelle');
+   Route::get('/admin/rol/sil/{id}','AdminRolSil')->name('admin.rol.sil');
 
 
-
+   
+   
+//Kullanıcılar route
+   Route::get('/kullanici/liste','KullaniciListe')->name('kullanici.liste');
+   Route::get('/kullanici/ekle','KullaniciEkle')->name('kullanici.ekle');
+   Route::post('/kullanici/ekle/form','KullaniciEkleForm')->name('kullanici.ekle.form');
+   Route::get('/kullanici/duzenle/{id}','KullaniciDuzenle')->name('kullanici.duzenle');
+   Route::post('/kullanici/guncelle/{id}','KullaniciGuncelle')->name('kullanici.guncelle');
+   Route::get('/kullanici/sil/{id}','KullaniciSil')->name('kullanici.sil');
 
 });
 

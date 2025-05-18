@@ -27,6 +27,9 @@
                                             <div class="col-sm-10 form-group" >
                                                 <select class="form-select" aria-label="Default select examle" name="grup_adi">
                                                     <option selected="">Lütfen bir grup seçiniz</option>
+                                                    <option value="rolizin" {{ $izinler-> grup_adi == 'rolizin' ? 'selected': ''}}>Rol & İzin</option>
+                                                    <option value="yetkiler" {{ $izinler-> grup_adi == 'yetkiler' ? 'selected': ''}}>Yetkiler</option>
+                                                    <option value="kullanicilar" {{ $izinler-> grup_adi == 'kullanicilar' ? 'selected': ''}}>Kulanıcılar</option>
                                                     <option value="banner" {{ $izinler-> grup_adi == 'banner' ? 'selected': ''}}>Banner</option>
                                                     <option value="hakkimizda" {{ $izinler-> grup_adi == 'hakkimizda' ? 'selected': ''}}>Hakkımızda</option>
                                                     <option value="kategoriler" {{ $izinler-> grup_adi == 'kategoriler' ? 'selected': ''}}>Kategoriler</option>

@@ -7,35 +7,49 @@
                             <li class="menu-title">Menu</li>
 
                             <li>
-                                <a href="index.html" class="waves-effect">
+                                <a href="{{url('/dashboard')}}" class="waves-effect">
                                     <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end">3</span>
                                     <span>Dashboard</span>
                                 </a>
                             </li>
                 
+                          
+                            @if(Auth::user()->can('banner.menu'))
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-mail-send-line"></i>
                                     <span>Banner</span>
                                 </a>
+                                @if(Auth::user()->can('banner.duzenle'))
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{route('banner')}}">Banner Düzenle</a></li>
                                 </ul>
+                                @endif
                             </li>
+                            @endif
 
+ 
+                            @if(Auth::user()->can('hak.menu'))
                              <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-mail-send-line"></i>
                                     <span>Hakkımızda</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
+                                @if(Auth::user()->can('hak.duzenle'))
                                     <li><a href="{{route('hakkimizda')}}">Hakkımızda Düzenle</a></li>
+                                @endif    
+                                @if(Auth::user()->can('hak.coklu.ekle'))
                                     <li><a href="{{route('coklu.resim')}}">Çoklu Resim Ekle</a></li>
+                                @endif
+                                @if(Auth::user()->can('hak.coklu.liste'))
                                     <li><a href="{{route('coklu.liste')}}">Çoklu Resimler</a></li>
+                                @endif
                                 </ul>
                             </li>
+                            @endif
 
-                            
+                            @if(Auth::user()->can('kategori.menu'))
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-layout-3-line"></i>
@@ -44,12 +58,17 @@
                                 <ul class="sub-menu" aria-expanded="true">
 
                                     <li>
+                                    @if(Auth::user()->can('kategori.liste'))
                                             <li><a href="{{route('kategori.hepsi')}}">Hepsi</a></li>
+                                            @endif
+                                            @if(Auth::user()->can('kategori.ekle'))        
                                             <li><a href="{{route('kategori.ekle')}}">Kategori Ekle</a></li>
+                                            @endif
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            @endif
+                            
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-layout-3-line"></i>
@@ -126,7 +145,9 @@
                                 </ul>
                             </li>
                             <li>
+                                
 
+                         
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-layout-3-line"></i>
@@ -135,13 +156,42 @@
                                 <ul class="sub-menu" aria-expanded="true">
 
                                     <li>
-                                            <li><a href="{{route('izin.liste')}}">İzinler</a></li>
-                                            <li><a href="{{route('rol.liste')}}">Roller</a></li>
-                                            <li><a href="{{route('rol.izin.verme')}}">Role Yetki Ver</a></li>
-                                            <li><a href="{{route('rol.yetki.liste')}}">Role Yetki Liste</a></li>
+                                            <li><a href="{{route('izin.liste')}}">İzinler Liste</a></li>
+                                            <li><a href="{{route('rol.liste')}}">Roller Liste</a></li>
                                     </li>
                                 </ul>
                             </li>
+
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Yetkiler</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li>
+                                            <li><a href="{{route('rol.yetki.liste')}}">Role Yetki Liste</a></li>
+                                            <li><a href="{{route('rol.izin.verme')}}">Role Yetki Ver</a></li>
+                                            
+                                    </li>
+                                </ul>
+                            </li>
+                    
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-layout-3-line"></i>
+                                    <span>Kullanıcılar</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+
+                                    <li>
+                                            <li><a href="{{route('kullanici.liste')}}">Kullanıcı Liste</a></li>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-layout-3-line"></i>

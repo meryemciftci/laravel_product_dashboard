@@ -16,14 +16,15 @@
                         
                         <div class="row">
                             <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
+                                <div class="card" >
+                                    <div class="card-body" style="overflow-x:auto;">
                                         <h4 class="card-title">Roller</h4>
                                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                             <tr>
                                                 <th>Sıra</th>
                                                 <th>Rol Adı</th>
+                                                <th>Yetkiler</th>
                                                 <th>İşlem</th>
                                             </tr>
                                             </thead>
@@ -36,9 +37,14 @@
                                                 <td>{{ $s++ }}</td>
                                                 <td>{{ $roller->name }}</td>
                                                 <td>
+                                                    @foreach($roller->permissions as $yetkiler)
+                                                    <span class="badge rounded-pill bg-primary" style="font: size 15px;">{{$yetkiler->name}}</span>
+                                                    @endforeach
+                                                </td>
+                                                <td>
                                                     <a href="{{route('rol.yetki.duzenle',$roller->id)}}" class="btn btn-info sm m-2" title="Düzenle" >
                                                         <i class="fas fa-edit"></i>
-                                                        <a href="{{route('rol.sil',$roller->id)}}" class="btn btn-danger sm" title="Sil" id="sil">
+                                                        <a href="{{route('admin.rol.sil',$roller->id)}}" class="btn btn-danger sm" title="Sil" id="sil">
                                                             <i class="fa fa-trash-alt"></i>
 </a>
 </a>

@@ -47,7 +47,9 @@ $urunler = App\Models\Urunler::where('durum',1)->orderBy('sirano','ASC')->get();
                                                 <img src="{{asset($urun -> resim)}}" alt="">
                                             </div>
                                             <div class="portfolio__overlay__content">
-                                                <span>{{ $urun['kategoriler']['kategori_adi']}}</span>
+                                                
+                                                <span>{{ $urun['kategoriler']['kategori_adi'] ?? 'Kategori bilgisi yok' }}</span>
+
                                                 <h4 class="title">
                                                     <a href="{{ url('urun/'.$urun->id.'/'.$urun->url) }}">{{ $urun -> baslik}}</a>
                                                 </h4>

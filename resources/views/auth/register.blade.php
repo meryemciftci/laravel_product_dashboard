@@ -63,8 +63,15 @@
                             @csrf
                             <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input id="name" class="form-control" type="name" name="name" required="" placeholder="İsim">
+                                        <input id="name" class="form-control" type="name" name="name" required="" placeholder="Ad Soyad">
                                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3 row">
+                                    <div class="col-12">
+                                        <input id="username" class="form-control" type="name" name="username" required="" placeholder="Kullanıcı Adı">
+                                        <x-input-error :messages="$errors->get('username')" class="mt-2" />
                                     </div>
                                 </div>
     
@@ -74,6 +81,15 @@
                                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                     </div>
                                 </div>
+
+                                <div class="form-group mb-3 row">
+                                    <div class="col-12">
+                                        <input id="telefon" class="form-control" type="text" name="telefon" required="" placeholder="Telefon">
+                                        <x-input-error :messages="$errors->get('telefon')" class="mt-2" />
+                                    </div>
+                                </div>
+
+
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
                                         <input id="password" class="form-control" type="password" name="password" required="" placeholder="Şifre">

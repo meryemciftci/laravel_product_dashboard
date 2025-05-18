@@ -10,7 +10,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title"> Role Yetki Düzenle</h4>
-                                        <form method="post" action="{{route('yetki.ver.form')}}" id="myForm">
+                                        <form method="post" action="{{route('rol.yetki.guncelle',$rol->id)}}" id="myForm">
                                             @csrf
 
 
@@ -48,7 +48,7 @@
                             <div class="col-9 mb4">
                                 @foreach( $yetkigrup as $izin)
                                         <div class="form-check mb-3">
-                                            <input class="form-check-input" name="yetki[]" {{$rol->hasPermissionTo($izin->name) ? 'checked' : ''}} type="checkbox" id="formCheck1{{$izin->id}}" value="{{$izin->id}}">
+                                            <input class="form-check-input" value="{{$izin->id}}" name="yetki[]" {{$rol->hasPermissionTo($izin->name) ? 'checked' : ''}} type="checkbox" id="formCheck1{{$izin->id}}">
                                             <label class="form-check-label" for="formCheck1{{$izin->id}}">{{$izin->name}}</label>
                                         </div>
                                 @endforeach
