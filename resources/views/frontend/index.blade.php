@@ -91,62 +91,72 @@
 
             <!-- testimonial-area-end -->
 
-            <!-- blog-area -->
-            <section class="blog">
-                <div class="container">
-                    <div class="row gx-0 justify-content-center">
-                        <div class="col-lg-4 col-md-6 col-sm-9">
-                            <div class="blog__post__item">
-                                <div class="blog__post__thumb">
-                                    <a href="blog-details.html"><img src="{{asset('frontend/assets/img/blog/blog_post_thumb01.jpg')}}" alt=""></a>
-                                    <div class="blog__post__tags">
-                                        <a href="blog.html">Story</a>
-                                    </div>
-                                </div>
-                                <div class="blog__post__content">
-                                    <span class="date">13 january 2021</span>
-                                    <h3 class="title"><a href="blog-details.html">Facebook design is dedicated to what's new in design</a></h3>
-                                    <a href="blog-details.html" class="read__more">Read mORe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-9">
-                            <div class="blog__post__item">
-                                <div class="blog__post__thumb">
-                                    <a href="blog-details.html"><img src="{{asset('frontend/assets/img/blog/blog_post_thumb02.jpg')}}" alt=""></a>
-                                    <div class="blog__post__tags">
-                                        <a href="blog.html">Social</a>
-                                    </div>
-                                </div>
-                                <div class="blog__post__content">
-                                    <span class="date">13 january 2021</span>
-                                    <h3 class="title"><a href="blog-details.html">Make communication Fast and Effectively.</a></h3>
-                                    <a href="blog-details.html" class="read__more">Read mORe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-9">
-                            <div class="blog__post__item">
-                                <div class="blog__post__thumb">
-                                    <a href="blog-details.html"><img src="{{asset('frontend/assets/img/blog/blog_post_thumb03.jpg')}}" alt=""></a>
-                                    <div class="blog__post__tags">
-                                        <a href="blog.html">Work</a>
-                                    </div>
-                                </div>
-                                <div class="blog__post__content">
-                                    <span class="date">13 january 2021</span>
-                                    <h3 class="title"><a href="blog-details.html">How to increase your productivity at work - 2021</a></h3>
-                                    <a href="blog-details.html" class="read__more">Read mORe</a>
-                                </div>
-                            </div>
+<!-- blog-area -->
+<section class="blog">
+    <div class="container">
+        <div class="row gx-0 justify-content-center">
+            <!-- Blog Post 1 -->
+            <div class="col-lg-4 col-md-6 col-sm-9">
+                <div class="blog__post__item">
+                    <div class="blog__post__thumb">
+                        <a href="blog-details.html"><img src="{{asset('frontend/assets/img/blog/blog_post_thumb01.jpg')}}" alt="Blog Post 1"></a>
+                        <div class="blog__post__tags">
+                            <a href="blog.html">Web Design</a>
                         </div>
                     </div>
-                    <div class="blog__button text-center">
-                        <a href="blog.html" class="btn">more blog</a>
+                    <div class="blog__post__content">
+                        <span class="date">19 Mayıs 2025</span>
+                        <h3 class="title"><a href="blog-details.html">Yeni Web Tasarımlarıyla Dikkat Çeken Trendlere Göz Atın</a></h3>
+                        <p>2025 yılında web tasarımında en çok dikkat çeken trendler hakkında detaylı bilgiler ve örnekler bulabilirsiniz.</p>
+                        <a href="blog-details.html" class="read__more">Daha Fazla Oku</a>
                     </div>
                 </div>
-            </section>
-            <!-- blog-area-end -->
-</main>
+            </div>
+            <!-- Blog Post 2 -->
+            <div class="col-lg-4 col-md-6 col-sm-9">
+                <div class="blog__post__item">
+                    <div class="blog__post__thumb">
+                        <a href="blog-details.html"><img src="{{asset('frontend/assets/img/blog/blog_post_thumb02.jpg')}}" alt="Blog Post 2"></a>
+                        <div class="blog__post__tags">
+                            <a href="blog.html">Sosyal Medya</a>
+                        </div>
+                    </div>
+                    <div class="blog__post__content">
+                        <span class="date">18 Mayıs 2025</span>
+                        <h3 class="title"><a href="blog-details.html">Sosyal Medya Pazarlamasında Başarıya Ulaşmak İçin İpuçları</a></h3>
+                        <p>Sosyal medya platformlarını etkin bir şekilde kullanarak nasıl daha fazla müşteri çekebilirsiniz? İşte ipuçları ve stratejiler.</p>
+                        <a href="blog-details.html" class="read__more">Daha Fazla Oku</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog Post 3 -->
+            <div class="col-lg-4 col-md-6 col-sm-9">
+                <div class="blog__post__item">
+                    <div class="blog__post__thumb">
+                        <a href="blog-details.html"><img src="{{asset('frontend/assets/img/blog/blog_post_thumb03.jpg')}}" alt="Blog Post 3"></a>
+                        <div class="blog__post__tags">
+                            <a href="blog.html">Yazılım</a>
+                        </div>
+                    </div>
+                    <div class="blog__post__content">
+                        <span class="date">17 Mayıs 2025</span>
+                        <h3 class="title"><a href="blog-details.html">2025'te Yazılım Geliştirme Trendleri</a></h3>
+                        <p>Yazılım geliştirme süreçleri 2025'te nasıl değişecek? Yeni araçlar ve metodolojiler hakkında detaylı bilgiler.</p>
+                        <a href="blog-details.html" class="read__more">Daha Fazla Oku</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- More Blog Button -->
+        <div class="blog__button text-center">
+            <a href="blog.html" class="btn">Daha Fazla Blog</a>
+        </div>
+    </div>
+</section>
+<!-- blog-area-end -->
+
+
+            
+</main>
              @endsection

@@ -28,6 +28,16 @@
                             <img class="rounded avatar-lg" src="{{  url('upload/resim-yok.jpg') }}" alt="" id="resimGoster">
                         </div>
                     </div>
+
+                    
+                    <div class="row mb-3" >
+                            <label for="example-text-input" class="col-form-label">Sıra no</label>
+                                <div class="col-sm-10 form-group" >
+                                  <input class="form-control" type="number" placeholder="Sıra no" name="sirano" value="1" >
+                                </div>
+                    </div>
+                    
+                    
                     <input type="submit" class="btn btn-info waves-effect waves-light" value="Çoklu Ekle">
 </form>
                                     </div>

@@ -1,11 +1,13 @@
+
+
 <!doctype html>
 <html lang="tr">
 
-    <head>
-        
-        <meta charset="utf-8" />
-        <title>Kayıt Ol</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+
+    <meta charset="utf-8" />
+    <title>Kayıt Ol</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
     <!-- App favicon -->
@@ -18,63 +20,45 @@
     <!-- App Css-->
     <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
-    <!-- bildiri -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
-    <!-- bildiri -->
+</head>
 
-    <style type="text/css">
-        .kapsayici
-        {
-            position:relative
-        }
+<body class="auth-body-bg">
+    <div class="bg-overlay"></div>
+    <div class="wrapper-page">
+        <div class="container-fluid p-0">
+            <div class="card">
+                <div class="card-body">
 
-        #goster
-        {
-            cursor: pointer;
-            position:absolute;
-            right: 20px;
-            top:12px;
-            font-size:15px;
-        }
-    </style>
-
-    </head>
-
-    <body class="auth-body-bg">
-        <div class="bg-overlay"></div>
-        <div class="wrapper-page">
-            <div class="container-fluid p-0">
-                <div class="card">
-                    <div class="card-body">
-    
-                        <div class="text-center mt-4">
-                            <div class="mb-3">
-                                <a href="index.html" class="auth-logo">
+                    <div class="text-center mt-4">
+                        <div class="mb-3">
+                            <a href="index.html" class="auth-logo">
                                 <img src="{{ asset('backend/assets/images/logo-dark.png') }}" height="30" class="logo-dark mx-auto" alt="">
                                 <img src="{{ asset('backend/assets/images/logo-light.png') }}" height="30" class="logo-light mx-auto" alt="">
-                                </a>
-                            </div>
+                            </a>
                         </div>
-    
-                        <h4 class="text-muted text-center font-size-18"><b>Kayıt Ol</b></h4>
-    
-                        <div class="p-3">
-                            <form class="form-horizontal mt-3" method="POST" action="{{ route('register') }}">
+                    </div>
+
+                    <h4 class="text-muted text-center font-size-18"><b>Kayıt Ol</b></h4>
+
+                    <div class="p-3">
+
+                        <form class="form-horizontal mt-3" method="POST" action="{{ route('register') }}">
                             @csrf
+
                             <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input id="name" class="form-control" type="name" name="name" required="" placeholder="Ad Soyad">
+                                        <input id="name" class="form-control" type="text" name="name" required="" placeholder="Ad Soyad">
                                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                     </div>
                                 </div>
 
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input id="username" class="form-control" type="name" name="username" required="" placeholder="Kullanıcı Adı">
+                                        <input id="username" class="form-control" type="text" name="username" required="" placeholder="Kullanıcı Adı">
                                         <x-input-error :messages="$errors->get('username')" class="mt-2" />
                                     </div>
                                 </div>
-    
+
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
                                         <input id="email" class="form-control" type="email" name="email" required="" placeholder="Email">
@@ -89,29 +73,29 @@
                                     </div>
                                 </div>
 
-
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
                                         <input id="password" class="form-control" type="password" name="password" required="" placeholder="Şifre">
                                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                     </div>
                                 </div>
+
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required="" placeholder="Şifre Kontrol ">
+                                        <input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required="" placeholder="Şifre Tekrar">
                                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                     </div>
                                 </div>
 
                                 <div class="form-group text-center row mt-3 pt-1">
                                     <div class="col-12">
-                                        <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Kayıt Ol</button>
+                                        <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Kayıtol</button>
                                     </div>
                                 </div>
-    
+
                                 <div class="form-group mt-2 mb-0 row">
                                     <div class="col-12 mt-3 text-center">
-                                        <a href= "{{ route('login') }}" class="text-muted">Hesabın var mı?</a>
+                                        <a href="{{ route('login') }}" class="text-muted">Hesabım Var</a>
                                     </div>
                                 </div>
                             </form>
@@ -125,16 +109,15 @@
             <!-- end container -->
         </div>
         <!-- end -->
-        
+
 
         <!-- JAVASCRIPT -->
         <script src="{{ asset('backend/assets/libs/jquery/jquery.min.js') }} "></script>
-            <script src="{{ asset('backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }} "></script>
-            <script src="{{ asset('backend/assets/libs/metismenu/metisMenu.min.js') }} "></script>
-            <script src="{{ asset('backend/assets/libs/simplebar/simplebar.min.js') }} "></script>
-            <script src="{{ asset('backend/assets/libs/node-waves/waves.min.js') }} "></script>
-
-            <script src="{{ asset('backend/assets/js/app.js') }} "></script>
+        <script src="{{ asset('backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }} "></script>
+        <script src="{{ asset('backend/assets/libs/metismenu/metisMenu.min.js') }} "></script>
+        <script src="{{ asset('backend/assets/libs/simplebar/simplebar.min.js') }} "></script>
+        <script src="{{ asset('backend/assets/libs/node-waves/waves.min.js') }} "></script>
+        <script src="{{ asset('backend/assets/js/app.js') }} "></script>
 
     </body>
-</html>
+    </html>

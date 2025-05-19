@@ -24,8 +24,33 @@
                                             <label for="example-text-input" class="col-sm-3 col-form-label">Email</label>
                                             <div class="col-sm-9" form-group>
                                                 <input class="form-control" type="email" placeholder="Email" name="email">
+                                                @error('email')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
                                             </div>
                                         </div>
+
+                                        <div class="row mb-3">
+                                            <label for="example-text-input" class="col-sm-3 col-form-label">Kullanıcı Adı</label>
+                                            <div class="col-sm-9" form-group>
+                                                <input class="form-control" type="text" placeholder="Kullanıcı Adı" name="username">
+                                                @error('username')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row mb-3">
+                                            <label for="example-text-input" class="col-sm-3 col-form-label">Telefon</label>
+                                            <div class="col-sm-9" form-group>
+                                                <input class="form-control" type="text" placeholder="Telefon" name="telefon">
+                                                 @error('telefon')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
 
                                         <div class="row mb-3" >
                                             <label for="example-text-input" class="col-sm-3 col-form-label">Şifre</label>

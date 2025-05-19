@@ -28,6 +28,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+    // Kullanıcı bilgilerini al
+    $user = Auth::user();
+
+    // Kullanıcının durumu aktif değilse çıkış yap ve hata ver
+    if ($user->durum != 1) {
+        Auth::logout();
+        return redirect()->route('login')->withErrors(['error' => 'Hesabınız aktif değil.']);
+    }
+
         //bildirim
         $mesaj = array(
             'bildirim' => 'Giriş Başarılı.',

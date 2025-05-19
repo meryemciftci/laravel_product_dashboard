@@ -21,6 +21,26 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'permission:dashboard'])->name('dashboard');
+
+//hakkimizda route
+Route::controller(HakkimizdaController:: class)->group(function(){
+    Route::get('/hakkimizda/duzenle','Hakkimizda')->name('hakkimizda')->middleware('auth');
+    Route::post('/hakkimizda/guncelle','HakkimizdaGuncelle')->name('hakkimizda.guncelle');
+    Route::get('/hakkimizda','HakkimizdaFront')->name('anasayfa.hak');
+    Route::get('/coklu/resim','CokluResim')->name('coklu.resim');
+    Route::post('/coklu/form','CokluForm')->name('coklu.resim.form');
+    Route::get('/coklu/liste','CokluListe')->name('coklu.liste');
+    Route::get('/coklu/durum','CokluDurum');
+    Route::get('/coklu/duzenle/{id}','CokluDuzenle')->name('coklu.duzenle');
+    Route::post('/coklu/guncelle','CokluGuncelle')->name('coklu.guncelle');
+    Route::get('/coklu/sil/{id}','CokluSil')->name('coklu.sil');
+});
+
+Route::middleware('auth')->group(function () {
+
+Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -35,25 +55,10 @@ Route::controller(BannerController:: class)->group(function(){
     Route::get('/banner/duzenle','HomeBanner')->name('banner');
     Route::post('/banner/guncelle','BannerGuncelle')->name('banner.guncelle');
 });
-//hakkimizda route
-Route::controller(HakkimizdaController:: class)->group(function(){
-    Route::get('/hakkimizda/duzenle','Hakkimizda')->name('hakkimizda');
-    Route::post('/hakkimizda/guncelle','HakkimizdaGuncelle')->name('hakkimizda.guncelle');
-    Route::get('/hakkimizda','HakkimizdaFront')->name('anasayfa.hak');
-    Route::get('/coklu/resim','CokluResim')->name('coklu.resim');
-    Route::post('/coklu/form','CokluForm')->name('coklu.resim.form');
-    Route::get('/coklu/liste','CokluListe')->name('coklu.liste');
-    Route::get('/coklu/duzenle/{id}','CokluDuzenle')->name('coklu.duzenle');
-    Route::post('/coklu/guncelle','CokluGuncelle')->name('coklu.guncelle');
-    Route::get('/coklu/sil/{id}','CokluSil')->name('coklu.sil');
-});
-
-
-
 
 //Kategori route
 Route::controller(KategoriController:: class)->group(function(){
-    Route::get('/kategori/hepsi','KategoriHepsi')->name('kategori.hepsi');
+    Route::get('/kategori/hepsi','KategoriHepsi')->name('kategori.hepsi')->middleware('permission:kategori.liste');
     Route::get('/kategori/ekle','KategoriEkle')->name('kategori.ekle');
     Route::post('/kategori/ekle/form','KategoriEkleForm')->name('kategori.ekle.form');
     Route::get('/kategori/duzenle/{id}','KategoriDuzenle')->name('kategori.duzenle');
@@ -138,6 +143,8 @@ Route::controller(RolController:: class)->group(function(){
    
 //Kullanıcılar route
    Route::get('/kullanici/liste','KullaniciListe')->name('kullanici.liste');
+   Route::get('/kullanici/durum','KullaniciDurum');
+   
    Route::get('/kullanici/ekle','KullaniciEkle')->name('kullanici.ekle');
    Route::post('/kullanici/ekle/form','KullaniciEkleForm')->name('kullanici.ekle.form');
    Route::get('/kullanici/duzenle/{id}','KullaniciDuzenle')->name('kullanici.duzenle');
@@ -147,9 +154,6 @@ Route::controller(RolController:: class)->group(function(){
 });
 
 
-
-
-Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

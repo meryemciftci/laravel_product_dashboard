@@ -1,6 +1,14 @@
 @extends('frontend.main_master')
 
 @section('main')
+
+@php
+    $seo= App\Models\Seo::find(1);
+@endphp
+
+@section('title') 
+{{ $hakkimizda->baslik }} | {{ $seo->site_adi }}
+@endsection
        <!-- main-area -->
         <main>
 

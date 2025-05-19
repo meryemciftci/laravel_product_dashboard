@@ -17,7 +17,7 @@
                                     </div>
                                     <div class="navbar__wrap main__menu d-none d-xl-flex">
                                         <ul class="navigation">
-                                            <li class="active"><a href="{{url('/')}}">AnaSayfa</a></li>
+                                            <li><a href="{{url('/')}}">AnaSayfa</a></li>
                                             <li><a href="{{route('anasayfa.hak')}}">Hakkımızda</a></li>
                             
 
@@ -48,9 +48,9 @@
                                             <li><a href="{{route('iletisim')}}">İletişim</a></li>
                                         </ul>
                                     </div>
-                                    <div class="header__btn d-none d-md-block">
+                                    {{-- <div class="header__btn d-none d-md-block">
                                         <a href="{{route('iletisim')}}" class="btn">İletişim</a>
-                                    </div>
+                                    </div> --}}
                                 </nav>
                             </div>
                             <!-- Mobile Menu  -->

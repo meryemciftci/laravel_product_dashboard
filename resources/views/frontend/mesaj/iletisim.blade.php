@@ -30,7 +30,7 @@ $coklu =App\Models\Cokluresim::all();
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="{{url('/')}}">AnaSayfa</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Teklif Formu</li>
+                                        <li class="breadcrumb-item active" aria-current="page">İletişim Formu</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -88,7 +88,7 @@ $coklu =App\Models\Cokluresim::all();
                                 @error('mesaj')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
-                        <button type="submit" class="btn">Teklif Gönder</button>
+                        <button type="submit" class="btn">İlet</button>
                     </form>
                 </div>
             </div>
@@ -96,7 +96,7 @@ $coklu =App\Models\Cokluresim::all();
 {{-- @php
 $footer = App\Models\Footer::find(1);
 @endphp --}}
-            <!-- contact-info-area -->
+            {{-- <!-- contact-info-area -->
             <section class="contact-info-area">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -108,6 +108,7 @@ $footer = App\Models\Footer::find(1);
                                 <div class="contact__info__content">
                                     <h4 class="title">Adres</h4>
                                     <span>İstanbul</span>
+                                    <span>Türkiye</span>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +139,7 @@ $footer = App\Models\Footer::find(1);
                     </div>
                 </div>
             </section>
-            <!-- contact-info-area-end -->
+            <!-- contact-info-area-end --> --}}
 
         </main>
 

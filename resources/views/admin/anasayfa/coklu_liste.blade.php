@@ -28,6 +28,7 @@
                                             <tr>
                                                 <th>Sıra</th>
                                                 <th>Resim</th>
+                                                <th>Durum</th>
                                                 <th>İşlem</th>
                                             </tr>
                                             </thead>
@@ -42,6 +43,9 @@
                                                 <td>{{ $s++ }}</td>
                                                 <td></td>
                                                 <td><img src="{{asset($resimler->resim)}}" style="height:50px; width:50px;"></style></td>
+                                                <td><input type="checkbox" class="coklu" data-id="{{$resimler->id}}" id="{{$resimler->id}}" switch="success" {{ $resimler->durum ? 'checked' : ''}}>
+                                                    <label for="{{ $resimler-> id}}" data-on-label="Yes" data-off-label="No"></label>
+                                                </td>
                                                 <td>
                                                 @if(Auth::user()->can('hak.coklu.duzenle'))
                                                     <a href="{{route('coklu.duzenle',$resimler->id)}}" class="btn btn-info sm m-2" title="Düzenle" >

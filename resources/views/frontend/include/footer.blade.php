@@ -1,19 +1,21 @@
 
             <!-- contact-area -->
             @if (!Request::is('iletisim'))
-            <section class="homeContact" style="margin-top:230px;">
+            <section class="homeContact" style="margin-top:230px; ">
                 <div class="container">
                     <div class="homeContact__wrap">
                         <div class="row">
+
                             <div class="col-lg-6">
                                 <div class="section__title">
-                                    <span class="sub-title">07 - Say hello</span>
-                                    <h2 class="title">Any questions? Feel free <br> to contact</h2>
-                                </div>
-                                <div class="homeContact__content">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                                    <h2 class="mail"><a href="mailto:Info@webmail.com">Info@webmail.com</a></h2>
-                                </div>
+                                        <span class="sub-title">Bize Ulaşın</span>
+                                        <h2 class="title">Herhangi bir sorunuz mu var? <br> Teklif almak için bizimle iletişime geçin!</h2>
+                                    </div>
+                                    <div class="homeContact__content">
+                                        <p>Eğer herhangi bir sorunuz varsa ya da daha fazla bilgi almak isterseniz, bizimle iletişime geçmekten çekinmeyin! İhtiyaçlarınıza yönelik kişisel bir teklif sunmak için buradayız. Aşağıdaki formu doldurduğunuzda, en kısa sürede size geri dönüş yapacağız.</p>
+                                        <h2 class="mail"><a href="mailto:email@example.com">email@example.com</a></h2>
+                                        <p>Ya da, doğrudan <strong>teklif almak için formu doldurun</strong>:</p>
+                                    </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="homeContact__form">
@@ -57,61 +59,51 @@
 
 
 
+<!-- Footer İletişim Bilgileri -->
 <footer class="footer">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-lg-4">
-                        <div class="footer__widget">
-                            <div class="fw-title">
-                                <h5 class="sub-title">Contact us</h5>
-                                <h4 class="title">+81383 766 284</h4>
-                            </div>
-                            <div class="footer__widget__text">
-                                <p>There are many variations of passages of lorem ipsum
-                                available but the majority have suffered alteration
-                                in some form is also here.</p>
-                            </div>
+    <section class="contact-info-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Adres Kutusu -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact__info">
+                        <div class="contact__info__icon">
+                            <img src="{{asset('frontend/assets/img/icons/contact_icon01.png')}}" alt="">
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
-                        <div class="footer__widget">
-                            <div class="fw-title">
-                                <h5 class="sub-title">my address</h5>
-                                <h4 class="title">AUSTRALIA</h4>
-                            </div>
-                            <div class="footer__widget__address">
-                                <p>Level 13, 2 Elizabeth Steereyt set <br> Melbourne, Victoria 3000</p>
-                                <a href="mailto:noreply@envato.com" class="mail">noreply@envato.com</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
-                        <div class="footer__widget">
-                            <div class="fw-title">
-                                <h5 class="sub-title">Follow me</h5>
-                                <h4 class="title">socially connect</h4>
-                            </div>
-                            <div class="footer__widget__social">
-                                <p>Lorem ipsum dolor sit amet enim. <br> Etiam ullamcorper.</p>
-                                <ul class="footer__social__list">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
+                        <div class="contact__info__content">
+                            <h4 class="title">Adres</h4>
+                            <span>İstanbul</span>
+                            <span>Türkiye</span>
                         </div>
                     </div>
                 </div>
-                <div class="copyright__wrap">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="copyright__text text-center">
-                                <p>Copyright @ Theme_Pure 2021 All right Reserved</p>
-                            </div>
+                <!-- Telefon Kutusu -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact__info">
+                        <div class="contact__info__icon">
+                            <img src="{{asset('frontend/assets/img/icons/contact_icon02.png')}}" alt="">
+                        </div>
+                        <div class="contact__info__content">
+                            <h4 class="title">Telefon</h4>
+                            <span>05356568264</span>
+                            <span>05356568264</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- E-posta Kutusu -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact__info">
+                        <div class="contact__info__icon">
+                            <img src="{{asset('frontend/assets/img/icons/contact_icon03.png')}}" alt="">
+                        </div>
+                        <div class="contact__info__content">
+                            <h4 class="title">Mail Adresimiz</h4>
+                            <span>email@example.com</span>
+                            <span>info@yourdomain.com</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </section>
+</footer>

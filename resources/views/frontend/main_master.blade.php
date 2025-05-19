@@ -76,7 +76,7 @@
     <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugins.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
-    <script type="text/javascript"><script>
+    
 
         <!-- bildiri -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -109,7 +109,7 @@
      <!-- validate -->
      <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
      <!-- validate -->
-
+<script type="text/javascript">
 	$(document).ready(function (){
 		$('#myForm').validate({
 			rules: 

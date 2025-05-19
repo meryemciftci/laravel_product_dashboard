@@ -29,6 +29,26 @@
                                         </div>
 
                                         <div class="row mb-3">
+                                            <label for="example-text-input" class="col-sm-3 col-form-label">Kullanıcı Adı</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" placeholder="Kullanıcı Adı" value="{{$user ->username}}" name="username" id="example-text-input">
+                                                @error('username')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="example-text-input" class="col-sm-3 col-form-label">Telefon</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" placeholder="Telefon" value="{{$user ->telefon}}" name="telefon" id="example-text-input">
+                                                @error('telefon')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
                                             <label for="example-text-input" class="col-sm-3 col-form-label">Rol Adı</label>
                                             <div class="col-sm-9 form-group" >
                                                 <select class="form-select" aria-label="Default select examle" name="rol">

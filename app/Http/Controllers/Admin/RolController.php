@@ -241,13 +241,12 @@ class RolController extends Controller
 
 
    
-   public function KullaniciListe(){
+public function KullaniciListe()
+{
+    $kullanici_liste = User::latest()->get(); // Tüm kullanıcıları getir
+    return view('admin.kullanicilar.kullanici_liste', compact('kullanici_liste'));
+}
 
-    $kullanici_liste = User::where('rol','admin')->latest()->get();
-    return view('admin.kullanicilar.kullanici_liste',compact('kullanici_liste'));
-
-
-   }//function sonu
 
    public function KullaniciEkle(){
     $roller = Role::all();
@@ -255,34 +254,41 @@ class RolController extends Controller
 
 
    }//function sonu
-
    public function KullaniciEkleForm(Request $request){
+            $request->validate([
+            'email' => 'required|unique:users',
+            'username' => 'required|unique:users',
+            'telefon' => 'required|unique:users',
+            ]);
+
+
+    $rol = Role::findById($request->rol); // ID'den rolü bul
+    $rol_adi = $rol ? $rol->name : 'admin'; // varsa adını al, yoksa admin olarak varsay
+
     $user = new User();
     $user->name = $request->name;
     $user->email = $request->email;
+    $user->username = $request->username;
+    $user->telefon = $request->telefon;
     $user->password = Hash::make($request->password);
-    $user->rol = 'admin';
+    $user->rol = $rol_adi; // ✅ ARTIK SABİT DEĞİL
+    $user->durum=1;
     $user->save();
 
-    if($request->rol){
-        // $user->assignRole($request->rol);
-        $rol = Role::findById($request->rol);  // ID ile rolü bul
-        if ($rol) {
-            $user->assignRole($rol->name);  // Rol adını kullanarak atama yap
-        }
+    if ($rol) {
+        $user->assignRole($rol->name); // roller tablosuna atanıyor
+    }
 
-
-    }//if sonu
-
-     //bildirim
-     $mesaj = array(
+    $mesaj = array(
         'bildirim' => 'Kullanıcı ekleme başarılı',
         'alert-type' => 'success'
     );
-    //bildirim
     return Redirect()->route('kullanici.liste')->with($mesaj);
+}
 
-   }//function sonu
+
+
+
 
    public function KullaniciDuzenle($id){
     $user = User::findOrFail($id);
@@ -293,38 +299,35 @@ class RolController extends Controller
    }//function sonu
 
 
-   public function KullaniciGuncelle(Request $request,$id)
-   {
+   public function KullaniciGuncelle(Request $request, $id)
+{
     $user = User::findOrFail($id);
+
+    // Rolü bul ve varsa adını al, yoksa mevcut rolünü koru
+    $rol = Role::findById($request->rol);
+    $rol_adi = $rol ? $rol->name : $user->rol;
+
     $user->name = $request->name;
     $user->email = $request->email;
-    $user->password = Hash::make($request->password);
-    $user->rol = 'admin';
+    $user->username = $request->username;
+    $user->telefon = $request->telefon;
+    $user->rol = $rol_adi; // Artık sabit değil
     $user->save();
 
-
+    // Mevcut tüm rolleri temizle
     $user->roles()->detach();
-    
-    if($request->rol){
-        // $user->assignRole($request->rol);
-        $rol = Role::findById($request->rol);  // ID ile rolü bul
-        if ($rol) {
-            $user->assignRole($rol->name);  // Rol adını kullanarak atama yap
-        }
 
+    if ($rol) {
+        $user->assignRole($rol->name); // Yeni rolü ata
+    }
 
-    }//if sonu
-
-     //bildirim
-     $mesaj = array(
+    $mesaj = array(
         'bildirim' => 'Kullanıcı güncelleme başarılı',
         'alert-type' => 'success'
     );
-    //bildirim
     return Redirect()->route('kullanici.liste')->with($mesaj);
+}
 
-
-   }//function sonu
 
    public function KullaniciSil($id){
     $user = User::findOrFail($id);
@@ -341,6 +344,16 @@ class RolController extends Controller
 
 
    }//function sonu
+
+   
+   public function KullaniciDurum(Request $request){  //urun_id ve duruma erişim reguest ile
+        $urun = User:: find($request->urun_id);  //id ye gör eürün bulunur
+        $urun-> durum = $request->durum;  //durum alanı güncellenir
+        $urun->save();  //veritabanına kaydedilir
+
+        return response()->json(['success' =>'Başarılı.']);
+
+      }//function sonu
 
 
     

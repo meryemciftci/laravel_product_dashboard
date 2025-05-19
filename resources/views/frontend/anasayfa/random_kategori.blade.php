@@ -12,7 +12,7 @@
                         <div class="row align-items-center justify-content-between">
                             <div class="col-xl-5 col-lg-6 col-md-8">
                                 <div class="section__title">
-                                    <span class="sub-title">02 - Servislerimiz</span>
+                                    <span class="sub-title">Hizmetlerimiz</span>
                                     <h2 class="title">Kategoriler</h2>
                                 </div>
                             </div>

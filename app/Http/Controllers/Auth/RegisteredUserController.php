@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role;
+
 
 class RegisteredUserController extends Controller
 {
@@ -43,7 +45,13 @@ class RegisteredUserController extends Controller
             'username' => $request->username,
             'telefon' => $request->telefon,
             'password' => Hash::make($request->password),
+            'durum' => 1,  
+ 
         ]);
+
+
+        $user->assignRole('kullanici');
+
 
         event(new Registered($user));
 

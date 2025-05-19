@@ -92,8 +92,11 @@ class HakkimizdaController extends Controller
     public function CokluForm(Request $request){
         $request -> validate([
             'resim' => 'required',
+            'sirano' => 'required',
         ],[
             'resim.required' => 'Resim boş olamaz.',
+            'sirano.required' => 'Sıra no  boş olamaz.',
+
         ]);
         $resimler = $request -> file('resim');
 
@@ -105,7 +108,10 @@ class HakkimizdaController extends Controller
 
 
             Cokluresim::insert([
+                'sirano' => $request->sirano,
+                'durum' => 1,
                 'resim' => $resim_kaydet,
+                'durum' => 1,
                 'created_at' => Carbon::now()
             ]);
         }//foreach bitti
@@ -160,8 +166,10 @@ class HakkimizdaController extends Controller
 
  
          Cokluresim::findOrFail($id)->update([
-             'resim' => $resim_kaydet,
- 
+            'sirano' => $request->sirano,
+            'resim' => $resim_kaydet,
+
+
          ]);
          //bildirim
          $mesaj = array(
@@ -193,6 +201,16 @@ class HakkimizdaController extends Controller
  
 
      }//fonksiyon bitti
+
+     
+    public function CokluDurum(Request $request){  //urun_id ve duruma erişim reguest ile
+        $urun = Cokluresim:: find($request->urun_id);  //id ye gör eürün bulunur
+        $urun-> durum = $request->durum;  //durum alanı güncellenir
+        $urun->save();  //veritabanına kaydedilir
+
+        return response()->json(['success' =>'Başarılı.']);
+
+      }//function sonu
     
 
     

@@ -33,6 +33,7 @@
                                                 <th>Resim</th>
                                                 <th>Adı</th>
                                                 <th>Email</th>
+                                                <th>Durum</th>
                                                 <th>Rol</th>
                                                 <th>İşlem</th>
                                             </tr>
@@ -49,6 +50,9 @@
                                                 <td><img src="{{(!empty($kullanicilar->resim))? url('upload/admin/'.$kullanicilar->resim): url('upload/resim-yok.jpg') }}" style="height:50px; width:50px;"></style></td>
                                                 <td>{{ $kullanicilar->name }}</td>
                                                 <td>{{ $kullanicilar->email }}</td>
+                                                <td><input type="checkbox" class="kullanicilar" data-id="{{$kullanicilar->id}}" id="{{$kullanicilar->id}}" switch="success" {{ $kullanicilar->durum ? 'checked' : ''}}>
+                                                    <label for="{{ $kullanicilar-> id}}" data-on-label="Yes" data-off-label="No"></label>
+                                                </td>
                                                 <td>
                                                     @foreach($kullanicilar->roles as $rol)
                                                     <span class ="bg-primary" style="border-radius: 7px 7px 3px 3px; color:#fff; font-size:14px; padding:4px; " >
