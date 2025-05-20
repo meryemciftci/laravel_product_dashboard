@@ -47,11 +47,26 @@ $coklu =App\Models\Cokluresim::all();
             </section>
             <!-- breadcrumb-area-end -->
 
+
+
             <!-- contact-map -->
             <div id="contact-map">
                 <iframe src="{{ $seo->harita}}"></iframe>
             </div>
             <!-- contact-map-end -->
+
+            <!-- contact-info-section -->
+            <section class="contact-info-section" style="margin-bottom: 60px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h3 class="contact-info-title">İletişim - Bize Ulaşın</h3>
+                            <p class="contact-info-description">Her türlü soru ve görüşleriniz için bizimle iletişime geçebilirsiniz. Size yardımcı olmaktan memnuniyet duyarız.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- contact-info-section-end -->
 
             <!-- contact-area -->
             <div class="contact-area">
@@ -88,7 +103,7 @@ $coklu =App\Models\Cokluresim::all();
                                 @error('mesaj')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
-                        <button type="submit" class="btn">İlet</button>
+                        <button type="submit" class="btn">Gönder</button>
                     </form>
                 </div>
             </div>

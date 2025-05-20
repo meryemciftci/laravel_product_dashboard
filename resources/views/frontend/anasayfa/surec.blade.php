@@ -8,8 +8,8 @@ $surec = App\Models\Surec::where('durum',1)->orderBy('sirano','ASC')->get();
                     <div class="row justify-content-center">
                         <div class="col-xl-6 col-lg-8">
                             <div class="section__title text-center">
-                                <span class="sub-title">03 - Çalışma Sürecimiz</span>
-                                <h2 class="title">A clear product design process is the basis of success</h2>
+                                <span class="sub-title">Çalışma Sürecimiz</span>
+                                <h2 class="title">Dijital Projelerinizi Hayata Geçirme Yolculuğumuz</h2>
                             </div>
                         </div>
                     </div>

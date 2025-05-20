@@ -64,7 +64,9 @@ Route::controller(KategoriController:: class)->group(function(){
     Route::get('/kategori/duzenle/{id}','KategoriDuzenle')->name('kategori.duzenle');
     Route::post('/kategori/guncelle/form','KategoriGuncelleForm')->name('kategori.guncelle.form');
     Route::get('/kategori/sil/{id}','KategoriSil')->name('kategori.sil');
+
 });
+
 
 //AltKategori route
 Route::controller(AltKategoriController:: class)->group(function(){
@@ -139,12 +141,9 @@ Route::controller(RolController:: class)->group(function(){
    Route::get('/admin/rol/sil/{id}','AdminRolSil')->name('admin.rol.sil');
 
 
-   
-   
 //Kullanıcılar route
    Route::get('/kullanici/liste','KullaniciListe')->name('kullanici.liste');
    Route::get('/kullanici/durum','KullaniciDurum');
-   
    Route::get('/kullanici/ekle','KullaniciEkle')->name('kullanici.ekle');
    Route::post('/kullanici/ekle/form','KullaniciEkleForm')->name('kullanici.ekle.form');
    Route::get('/kullanici/duzenle/{id}','KullaniciDuzenle')->name('kullanici.duzenle');
@@ -152,8 +151,6 @@ Route::controller(RolController:: class)->group(function(){
    Route::get('/kullanici/sil/{id}','KullaniciSil')->name('kullanici.sil');
 
 });
-
-
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -169,7 +166,7 @@ require __DIR__.'/auth.php';
 //front route 
 
 Route::get('/urun/{id}/{url}', [FrontController::class, 'UrunDetay']);
-Route::get('/kategori/{id}/{url}', [FrontController::class, 'KategoriDetay']);
+Route::get('/kategori/{id}/{url}', [FrontController::class, 'KategoriDetay'])->name('kategori.detay');
 Route::get('/altkategori/{id}/{url}', [FrontController::class, 'AltKategoriDetay']);
 
 //Teklif Fromu route

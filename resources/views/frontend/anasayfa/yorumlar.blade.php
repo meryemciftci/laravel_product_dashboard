@@ -18,7 +18,7 @@ $coklu =App\Models\Cokluresim::all();
                         <div class="col-xl-5 col-lg-6">
                             <div class="testimonial__wrap">
                                 <div class="section__title">
-                                    <span class="sub-title">06 - Müşteri Yorumları</span>
+                                    <span class="sub-title">Müşteri Yorumları</span>
                                     <h2 class="title">Bazı Müşterilerimiz</h2>
                                 </div>
                                 <div class="testimonial__active">

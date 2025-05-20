@@ -2077,6 +2077,212 @@ Breadcrumb
       @media only screen and (min-width: 576px) and (max-width: 767px) {
         .banner__img img {
           max-width: 80%; } }
+
+  /*banner resim */
+
+/* Genel Body Stili */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Banner Resmi */
+.banner__img {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Yükseklik ekran boyutunda */
+    overflow: hidden; /* Resim taşarsa gizle */
+    border: 10px solid #dfdfdf; /* Resmin etrafında beyaz kenarlık */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Hafif gölge efekti */
+    border-radius: 15px; /* Yumuşak köşeler */
+    z-index: 0; /* Resmin arka planda kalmasını sağla */
+}
+
+.banner__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resmi tam ekran boyutunda yerleştirir */
+    filter: brightness(70%) contrast(120%) saturate(150%); /* Renkli filtre */
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease; /* Geçiş efektleri */
+}
+
+.banner__img img:hover {
+    transform: scale(1.05); /* Hover ile resmin büyümesi */
+    filter: brightness(100%) contrast(100%) saturate(100%); /* Hover ile filtre değişimi */
+    box-shadow: 0 0 10px 5px rgba(0, 150, 255, 0.8); /* Hover ile çerçeve büyür */
+}
+
+/* İçerik */
+.banner__content {
+    position: absolute; /* İçeriği resmin üzerine konumlandırma */
+    top: 50%; /* Dikeyde ortalar */
+    left: 5%; /* Sol hizalama */
+    transform: translateY(-50%); /* Gerçek ortalama */
+    color: rgb(15, 81, 224);
+    z-index: 1; /* İçeriğin resmin üstünde görünmesini sağlar */
+    max-width: 80%; /* İçeriğin çok geniş olmaması için */
+}
+
+.banner__content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.banner__content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.banner__content a {
+    display: inline-block;
+    margin-top: 30px;
+    background-color: #007bff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-decoration: none; /* Buton altında alt çizgi olmaması için */
+}
+
+.banner__content a:hover {
+    background-color: #0056b3;
+}
+
+/* Daha Fazla Butonunu Eski Haliyle Geri Getirelim */
+.banner__content a.dahaFazla {
+    background-color: #007bff; /* Eski halindeki renk */
+    border-radius: 30px; /* Yuvarlatılmış köşeler */
+    padding: 12px 30px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none; /* Alt çizgi kaldırma */
+    transition: background-color 0.3s ease;
+}
+
+.banner__content a.dahaFazla:hover {
+    background-color: #0056b3; /* Hover ile renk değişimi */
+}
+
+/* Scroll Link */
+.scroll__down {
+    position: absolute;
+    bottom: 30px; /* Scroll butonunu resmin alt kısmına yerleştir */
+    left: 50%; /* Ortala */
+    transform: translateX(-50%); /* Gerçek ortalama */
+    z-index: 2; /* Scroll butonunun resmin üstünde olmasını sağla */
+    color: #fff;
+}
+
+.scroll__link {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.scroll__link:hover {
+    background-color: #0056b3;
+    transform: translateY(-5px);
+}
+
+/* Video butonuna stil */
+.banner__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Video butonunun scroll butonunun altında olmasını sağlarız */
+}
+
+.banner__video a {
+    font-size: 40px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Video butonunun alt çizgisiz olmasını sağlarız */
+}
+
+.banner__video a:hover {
+    background-color: #007bff;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Gelen sayfadaki içerik */
+.content-wrapper {
+    display: flex;
+    justify-content: center;  /* Yatayda ortalar */
+    align-items: center;      /* Dikeyde ortalar */
+    height: 100vh;            /* Yükseklik ekranın tamamı */
+    text-align: center;       /* Yazıları ortalar */
+    flex-direction: column;   /* Resmi ve yazıyı dikeyde sıralar */
+    padding: 0 20px;          /* İçerikle kenar arasına boşluk ekler */
+}
+
+/* Resim ve içerik kapsayıcı */
+.content-wrapper .image-wrapper {
+    width: 100%;
+    max-width: 600px;        /* Resmin max genişliğini ayarlayarak boyutlandır */
+    height: auto;
+    margin-bottom: 20px;     /* Resim ile yazı arasına boşluk ekler */
+}
+
+.content-wrapper .image-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;  /* Resmi orantılı bir şekilde yerleştirir */
+}
+
+/* Başlık ve açıklama */
+.content-wrapper .text-wrapper {
+    max-width: 800px;       /* Yazının max genişliğini sınırlama */
+    margin: 0 auto;         /* Yazıyı yatayda ortalama */
+}
+
+.content-wrapper .text-wrapper h2 {
+    font-size: 36px;        /* Başlık boyutu */
+    font-weight: 700;
+    margin-bottom: 15px;    /* Başlık ile açıklama arasına boşluk ekler */
+}
+
+.content-wrapper .text-wrapper p {
+    font-size: 18px;        /* Açıklama yazısının boyutu */
+    line-height: 1.6;       /* Satır aralığı */
+    margin-bottom: 20px;    /* Yazı ile buton arasına boşluk */
+}
+
+.content-wrapper .text-wrapper a {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.content-wrapper .text-wrapper a:hover {
+    background-color: #0056b3;
+}
+
+/* banner resim sonu*/
+
+
   .banner::after {
     content: "";
     position: absolute;
@@ -2425,6 +2631,21 @@ Breadcrumb
       .about.about__style__two .about__image {
         text-align: center;
         margin-bottom: 50px; } }
+/* Resme kenarlık, yuvarlak köşeler ve gölge eklemek için */
+.about__image img {
+    border: 8px solid #fff; /* Beyaz kenarlık */
+    border-radius: 15px; /* Yuvarlak köşeler */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    transition: all 0.3s ease-in-out; /* Geçiş efekti */
+}
+
+/* Resme hover efekti ekleyerek estetik görünümü artırma */
+.about__image img:hover {
+    transform: scale(1.05); /* Resmi büyütme */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2); /* Daha büyük gölge efekti */
+    border-color: #f79c42; /* Kenarlık rengini değiştirme (daha dikkat çekici bir renk) */
+}
+
     .about.about__style__two .about__content {
       margin: 0 57px 0 44px; }
       @media (max-width: 1199.98px) {
@@ -2697,6 +2918,10 @@ Breadcrumb
         border-color: #0054FF;
         color: #fff; }
   .services__item {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
     margin-bottom: 30px;
     background: #fff; }
     .services__item:hover .border-btn {
@@ -2712,6 +2937,9 @@ Breadcrumb
   .services__thumb img {
     width: 100%; }
   .services__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     border: 2px solid #F7F7F7;
     padding: 30px 38px 45px; }
     @media (max-width: 767.98px) {
@@ -2725,10 +2953,23 @@ Breadcrumb
       line-height: 1.3;
       letter-spacing: -0.01em;
       margin-bottom: 19px; }
+      /* Başlık yüksekliğini eşitlemek için */
+   .services__content h3.title {
+    height: 50px; /* Bu değeri kendi tasarımınıza göre ayarlayabilirsiniz */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+   }
     .services__content p {
+    height: 80px; /* Bu değeri kendi tasarımınıza göre ayarlayabilirsiniz */
+    overflow: hidden;
+    margin-bottom: 15px;
       font-size: 15px;
       line-height: 1.7;
       margin-bottom: 0; }
+      .services__content .border-btn {
+    margin-top: auto;
+    }
     .services__content .border-btn::before {
       background: #0054FF; }
   .services__icon {
@@ -3247,7 +3488,7 @@ Breadcrumb
     position: absolute;
     width: 438px;
     height: 438px;
-    background: rgba(0, 84, 255, 0.95);
+    background: rgba(5, 20, 240, 0.95);
     border-radius: 50%;
     display: flex;
     align-items: center;

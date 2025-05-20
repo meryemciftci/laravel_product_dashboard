@@ -48,7 +48,6 @@
             <!-- portfolio-area -->
             <section class="portfolio__inner">
                 <div class="container">
-
                     <div class="portfolio__inner__active">
                         @foreach($urunler as $urun)
                         <div class="portfolio__inner__item grid-item cat-two cat-three">
@@ -63,13 +62,13 @@
                                 <div class="col-lg-6 col-md-10">
                                     <div class="portfolio__inner__content">
                                         <h2 class="title"><a href="{{ url('urun/'.$urun->id.'/'.$urun->url) }}">{{$urun->baslik}}</a></h2>
-                                        <p>{{!! Str::limit($urun->metin,322) !!}}</p>
+                                        <p>{!! Str::limit($urun->metin,322) !!}</p>
                                         <a href="{{ url('urun/'.$urun->id.'/'.$urun->url) }}" class="link">Devamı....</a>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
                         </div>
+                        @endforeach
 
                     <div class="pagination-wrap d-flex justify-content-end">
                         {{$urunler->links('vendor.pagination.custom')}}

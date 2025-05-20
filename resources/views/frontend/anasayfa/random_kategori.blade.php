@@ -7,7 +7,6 @@
             
             <section class="services">
                 <div class="container">
-
                     <div class="services__title__wrap">
                         <div class="row align-items-center justify-content-between">
                             <div class="col-xl-5 col-lg-6 col-md-8">
@@ -22,10 +21,7 @@
                         </div>
                     </div>
 
-
-
                     <div class="row gx-0 services__active">
-
                     @foreach($kategoriler as $kategori)
                         <div class="col-xl-3">
                             <div class="services__item">
@@ -39,7 +35,7 @@
                                     </div>
                                     <h3 class="title"><a href="services-details.html">{{ $kategori -> kategori_adi}} </a></h3>
                                     <p>{{ $kategori -> aciklama}}</p>
-                                    <a href="services-details.html" class="btn border-btn">Kategori Gör</a>
+                                    <a href="{{ route('kategori.detay', ['id' => $kategori->id, 'url' => Str::slug($kategori->kategori_adi)]) }}" class="btn border-btn">Kategori Gör</a>
                                 </div>
                             </div>
                         </div>
